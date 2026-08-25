@@ -9,8 +9,8 @@
  */
 
 // SUPABASE CREDENTIALS
-const SUPABASE_URL = 'https://iorssmjivxszetxdscxv.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlvcnNzbWppdnhzemV0eGRzY3h2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcxODkwODEsImV4cCI6MjEwMjc2NTA4MX0.MEDJFu2I-IUT5Jmq4AqrRA7q0QUFtJxeDjcQN0PJ-Z4';
+const SUPABASE_URL = 'https://nlnmhjnoyfhusmllympq.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5sbm1oam5veWZodXNtbGx5bXBxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc0MDAxNjMsImV4cCI6MjEwMjk3NjE2M30.9urcZQ9B1mYivgvsUhOpDrvGGZDP312qAwXZeQCK9o0';
 
 // GITHUB CONFIG
 const GITHUB_USERNAME = 'syafanaiyaazzahra-collab';
@@ -383,7 +383,7 @@ function initSupabaseRatings() {
       submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Menyimpan ke Supabase...`;
 
       try {
-        const res = await fetch(`${SUPABASE_URL}/rest/v1/portfolio_reviews`, {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/ratings`, {
           method: 'POST',
           headers: {
             'apikey': SUPABASE_KEY,
@@ -393,7 +393,8 @@ function initSupabaseRatings() {
           },
           body: JSON.stringify({
             rating: selectedStarRating,
-            message: message || 'Rating bintang ' + selectedStarRating
+            comment: message || 'Rating bintang ' + selectedStarRating,
+            created_at: new Date().toISOString()
           })
         });
 
@@ -419,6 +420,51 @@ function initSupabaseRatings() {
   loadSupabaseRatings();
 }
 
+// Expose ke window untuk akses global
+window.PortfolioDB = {
+  getRatings: loadSupabaseRatings,
+  submitRating: async (rating, comment) => {
+    const submitBtn = document.getElementById('btnSubmitRating');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Menyimpan...`;
+    }
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/ratings`, {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': `Bearer ${SUPABASE_KEY}`,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=representation'
+        },
+        body: JSON.stringify({
+          rating,
+          comment: comment || null,
+          created_at: new Date().toISOString()
+        })
+      });
+      if (res.ok) {
+        if (submitBtn) {
+          const feedbackInput = document.getElementById('ratingFeedback');
+          if (feedbackInput) feedbackInput.value = '';
+        }
+        loadSupabaseRatings();
+        return { success: true };
+      }
+      throw new Error(`HTTP ${res.status}`);
+    } catch (err) {
+      console.error('Submit error:', err);
+      return { success: false, error: err.message };
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<span>Kirim Rating & Ulasan</span> <i class="fa-solid fa-paper-plane"></i>`;
+      }
+    }
+  }
+};
+
 function updateStarPickerVisual(rating) {
   const starPicker = document.getElementById('starRatingPicker');
   if (!starPicker) return;
@@ -440,19 +486,36 @@ async function loadSupabaseRatings() {
   const reviewsFeed = document.getElementById('reviewsFeed');
 
   try {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/portfolio_reviews?select=*&order=id.desc&limit=15`, {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/ratings?select=*&order=id.desc&limit=15`, {
       headers: {
         'apikey': SUPABASE_KEY,
         'Authorization': `Bearer ${SUPABASE_KEY}`
       }
     });
 
-    if (!res.ok) return;
+    if (!res.ok) {
+      throw new Error(`Supabase request failed: ${res.status}`);
+    }
 
     const data = await res.json();
-    if (!data || data.length === 0) return;
+    if (!data || data.length === 0) {
+      if (scoreNum) scoreNum.textContent = '-.-';
+      if (countDisplay) countDisplay.textContent = 'Belum ada ulasan pengunjung';
+      if (starsDisplay) {
+        starsDisplay.innerHTML = '<i class="fa-regular fa-star"></i>'.repeat(5);
+      }
+      if (reviewsFeed) {
+        reviewsFeed.innerHTML = `
+          <div style="text-align: center; color: var(--text-dim); padding: 40px 0; font-family: var(--font-mono);">
+            <i class="fa-regular fa-message" style="font-size: 1.5rem; color: var(--accent); margin-bottom: 10px; display: block;"></i>
+            Belum ada ulasan. Jadilah yang pertama memberi rating!
+          </div>
+        `;
+      }
+      return;
+    }
 
-    const total = data.reduce((acc, curr) => acc + (curr.rating || 5), 0);
+    const total = data.reduce((acc, curr) => acc + (curr.rating || 0), 0);
     const avg = (total / data.length).toFixed(1);
 
     if (scoreNum) scoreNum.textContent = avg;
@@ -478,13 +541,26 @@ async function loadSupabaseRatings() {
               <span class="review-stars">${starStr} (${starCount}/5)</span>
               <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim);">#Review-${item.id}</span>
             </div>
-            <p class="review-text">${escapeHtml(item.message || 'Rating bintang ' + starCount)}</p>
+            <p class="review-text">${escapeHtml(item.comment || 'Rating bintang ' + starCount)}</p>
           </div>
         `;
       }).join('');
     }
   } catch (err) {
     console.error('Error fetching Supabase reviews:', err);
+    if (scoreNum) scoreNum.textContent = '-.-';
+    if (countDisplay) countDisplay.textContent = 'Rating belum dapat dimuat';
+    if (starsDisplay) {
+      starsDisplay.innerHTML = '<i class="fa-regular fa-star"></i>'.repeat(5);
+    }
+    if (reviewsFeed) {
+      reviewsFeed.innerHTML = `
+        <div style="text-align: center; color: var(--text-dim); padding: 40px 0; font-family: var(--font-mono);">
+          <i class="fa-solid fa-triangle-exclamation" style="font-size: 1.5rem; color: var(--warning); margin-bottom: 10px; display: block;"></i>
+          Ulasan belum dapat dimuat. Silakan coba lagi nanti.
+        </div>
+      `;
+    }
   }
 }
 
