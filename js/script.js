@@ -316,6 +316,11 @@ window.openCertModal = function(title, issuer, imgSrc, desc) {
   const modalTitle = document.getElementById('certModalTitle');
   const modalSub = document.getElementById('certModalSub');
   const modalDesc = document.getElementById('certModalDesc');
+  const modalGraphic = document.getElementById('certModalGraphic');
+
+  if (modalGraphic && imgSrc) {
+    modalGraphic.innerHTML = `<img src="${imgSrc}" alt="${title}" style="display:block; width:100%; max-height:70vh; object-fit:contain; border-radius:8px;">`;
+  }
 
   if (modalTitle) modalTitle.textContent = title;
   if (modalSub) modalSub.textContent = issuer;

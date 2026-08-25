@@ -522,197 +522,49 @@
         <div class="section-badge" id="certCountDisplay">Menampilkan Semua Sertifikat</div>
       </div>
 
-      <!-- 3 Category Filter Buttons -->
-      <div class="cert-filters reveal-item">
-        <button class="cert-filter-btn active" data-cert="all">
-          <i class="fa-solid fa-layer-group"></i> Semua Sertifikat
-        </button>
-        <button class="cert-filter-btn" data-cert="keahlian">
-          <i class="fa-solid fa-certificate"></i> 1. Sertifikasi Keahlian
-        </button>
-        <button class="cert-filter-btn" data-cert="lomba">
-          <i class="fa-solid fa-trophy"></i> 2. Lomba & Kompetisi
-        </button>
-        <button class="cert-filter-btn" data-cert="organisasi">
-          <i class="fa-solid fa-users"></i> 3. Organisasi & Kepanitiaan
-        </button>
-      </div>
-
-      <!-- Certificates Grid -->
+      <!-- 2 CV Cards (hanya 2, gunakan gambar PNG) -->
       <div class="cert-grid reveal-item" id="certGrid">
         
-        <!-- Cert 1: Keahlian (Web Development & Software Engineering) -->
-        <div class="cert-card" data-category="keahlian">
-          <div class="cert-preview-img" onclick="openCertModal('Sertifikasi Full-Stack Web & Software Engineering', 'Badan Sertifikasi IT & Development', 'assets/certificates/cert-webdev.svg', 'Sertifikasi kompetensi penguasaan arsitektur web modern, JavaScript ES6+, manajemen basis data SQL, dan deployment cloud application.')">
-            <span class="cert-category-badge badge-keahlian"><i class="fa-solid fa-code"></i> Keahlian</span>
-            <div style="text-align: center; color: var(--accent); padding: 20px;">
-              <i class="fa-solid fa-file-certificate" style="font-size: 3.5rem; margin-bottom: 8px; color: var(--accent);"></i>
-              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">Klik untuk melihat foto sertifikat</div>
+        <!-- Cert 1: CV Syafa Naiya Az Zahra -->
+        <div class="cert-card" data-category="cv">
+          <div class="cert-preview-img" onclick="openCertModal('Curriculum Vitae - Syafa Naiya Az Zahra', 'Personal CV', 'assets/certificates/Syafa_Naiya_Az_Zahra_page1.png', 'Curriculum Vitae lengkap berisi latar belakang pendidikan, keahlian, dan pengalaman.')">
+            <span class="cert-category-badge badge-keahlian"><i class="fa-solid fa-file-alt"></i> CV</span>
+            <div style="text-align: center; color: var(--accent); padding: 10px;">
+              <img src="assets/certificates/Syafa_Naiya_Az_Zahra_page1.png" alt="CV Anya" style="max-width: 100%; max-height: 180px; border-radius: 8px; margin-bottom: 10px;">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">Klik untuk lihat penuh</div>
             </div>
           </div>
           <div class="cert-body">
             <div>
-              <span class="cert-issuer"><i class="fa-solid fa-building-columns"></i> Sertifikasi Keahlian IT</span>
-              <h4>Full-Stack Web Development & Software Engineering</h4>
-              <p>Penguasaan teknologi frontend modern, integrasi backend API, arsitektur RESTful, dan manajemen basis data relasional.</p>
+              <span class="cert-issuer"><i class="fa-solid fa-user-graduate"></i> Curriculum Vitae</span>
+              <h4>CV Lengkap - Syafa Naiya Az Zahra</h4>
+              <p>Dokumen lengkap profil, pendidikan, keahlian teknis, pengalaman, dan pencapaian akademis.</p>
             </div>
             <div class="cert-footer">
-              <span class="cert-date"><i class="fa-regular fa-calendar"></i> 2025</span>
-              <span class="cert-view-btn" onclick="openCertModal('Sertifikasi Full-Stack Web & Software Engineering', 'Badan Sertifikasi IT & Development', 'assets/certificates/cert-webdev.svg', 'Sertifikasi kompetensi penguasaan arsitektur web modern, JavaScript ES6+, manajemen basis data SQL, dan deployment cloud application.')">Lihat Foto <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+              <span class="cert-date"><i class="fa-regular fa-calendar"></i> 2026</span>
+              <span class="cert-view-btn" onclick="openCertModal('Curriculum Vitae - Syafa Naiya Az Zahra', 'Personal CV', 'assets/certificates/Syafa_Naiya_Az_Zahra_page1.png', 'Curriculum Vitae lengkap berisi latar belakang pendidikan, keahlian, dan pengalaman.')">Lihat Full <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </div>
           </div>
         </div>
 
-        <!-- Cert 2: Keahlian (Cisco Networking & VLSM) -->
-        <div class="cert-card" data-category="keahlian">
-          <div class="cert-preview-img" onclick="openCertModal('Computer Networking & VLSM Architecture', 'Cisco Academy & Lab Jaringan UKSW', 'assets/certificates/cert-network.svg', 'Kompetensi perancangan topologi jaringan skala enterprise, subnetting VLSM, routing protocol, dan administrasi server jaringan.')">
-            <span class="cert-category-badge badge-keahlian"><i class="fa-solid fa-network-wired"></i> Keahlian</span>
-            <div style="text-align: center; color: #38BDF8; padding: 20px;">
-              <i class="fa-solid fa-server" style="font-size: 3.5rem; margin-bottom: 8px; color: #38BDF8;"></i>
-              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">Klik untuk melihat foto sertifikat</div>
+        <!-- Cert 2: CV Lounity - Design Version -->
+        <div class="cert-card" data-category="cv">
+          <div class="cert-preview-img" onclick="openCertModal('CV Lounity - Syafa Naiya Az Zahra', 'Design Version CV', 'assets/certificates/Syafa_naiya_AZ_Zahra_Lounity_page1.png', 'CV dengan desain modern untuk aplikasi profesional dan portofolio.')">
+            <span class="cert-category-badge badge-lomba"><i class="fa-solid fa-palette"></i> Design CV</span>
+            <div style="text-align: center; color: #38BDF8; padding: 10px;">
+              <img src="assets/certificates/Syafa_naiya_AZ_Zahra_Lounity_page1.png" alt="Lounity CV" style="max-width: 100%; max-height: 180px; border-radius: 8px; margin-bottom: 10px;">
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">Klik untuk lihat penuh</div>
             </div>
           </div>
           <div class="cert-body">
             <div>
-              <span class="cert-issuer"><i class="fa-solid fa-building-columns"></i> Cisco & Network Lab</span>
-              <h4>Computer Networking & VLSM Architecture</h4>
-              <p>Sertifikasi pengujian pemahaman konsep TCP/IP, simulasi Packet Tracer, routing dinamis/statis, serta keamanan jaringan komputer.</p>
+              <span class="cert-issuer"><i class="fa-solid fa-award"></i> Design Version CV</span>
+              <h4>CV Desain Lounity - Modern Layout</h4>
+              <p>Curriculum Vitae dengan layout desain profesional untuk kebutuhan presentasi dan portfolio digital.</p>
             </div>
             <div class="cert-footer">
-              <span class="cert-date"><i class="fa-regular fa-calendar"></i> 2025</span>
-              <span class="cert-view-btn" onclick="openCertModal('Computer Networking & VLSM Architecture', 'Cisco Academy & Lab Jaringan UKSW', 'assets/certificates/cert-network.svg', 'Kompetensi perancangan topologi jaringan skala enterprise, subnetting VLSM, routing protocol, dan administrasi server jaringan.')">Lihat Foto <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cert 3: Lomba (UI/UX & Web Design Challenge) -->
-        <div class="cert-card" data-category="lomba">
-          <div class="cert-preview-img" onclick="openCertModal('Juara UI/UX & Web App Design Challenge', 'National Tech Competition / Informatics Expo', 'assets/certificates/cert-lomba-uiux.svg', 'Penghargaan atas perancangan antarmuka aplikasi inovatif yang mengedepankan aspek Human-Computer Interaction (HCI) dan Nielsen Usability.')">
-            <span class="cert-category-badge badge-lomba"><i class="fa-solid fa-trophy"></i> Lomba</span>
-            <div style="text-align: center; color: #F59E0B; padding: 20px;">
-              <i class="fa-solid fa-award" style="font-size: 3.5rem; margin-bottom: 8px; color: #F59E0B;"></i>
-              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">Klik untuk melihat foto sertifikat</div>
-            </div>
-          </div>
-          <div class="cert-body">
-            <div>
-              <span class="cert-issuer"><i class="fa-solid fa-trophy"></i> Informatics Innovation Expo</span>
-              <h4>UI/UX & Web App Design Competition</h4>
-              <p>Pencapaian atas perancangan antarmuka pengguna berbasis riset empiris, prototipe interaktif Figma, dan validasi usability testing.</p>
-            </div>
-            <div class="cert-footer">
-              <span class="cert-date"><i class="fa-regular fa-calendar"></i> 2025</span>
-              <span class="cert-view-btn" onclick="openCertModal('Juara UI/UX & Web App Design Challenge', 'National Tech Competition / Informatics Expo', 'assets/certificates/cert-lomba-uiux.svg', 'Penghargaan atas perancangan antarmuka aplikasi inovatif yang mengedepankan aspek Human-Computer Interaction (HCI) dan Nielsen Usability.')">Lihat Foto <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cert 4: Lomba (Competitive Programming & Algorithm) -->
-        <div class="cert-card" data-category="lomba">
-          <div class="cert-preview-img" onclick="openCertModal('Algorithmic & Problem Solving Challenge', 'Informatics Coding Olympiad', 'assets/certificates/cert-coding.svg', 'Sertifikat apresiasi kompetisi pemrograman algoritma, optimasi kompleksitas Big-O, dan pemecahan kasus struktur data tingkat lanjut.')">
-            <span class="cert-category-badge badge-lomba"><i class="fa-solid fa-trophy"></i> Lomba</span>
-            <div style="text-align: center; color: #F59E0B; padding: 20px;">
-              <i class="fa-solid fa-medal" style="font-size: 3.5rem; margin-bottom: 8px; color: #F59E0B;"></i>
-              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">Klik untuk melihat foto sertifikat</div>
-            </div>
-          </div>
-          <div class="cert-body">
-            <div>
-              <span class="cert-issuer"><i class="fa-solid fa-trophy"></i> Coding Olympiad</span>
-              <h4>Algorithmic & Problem Solving Contest</h4>
-              <p>Kompetisi adu efisiensi logika algoritma pemrograman, pencarian biner, manipulasi pohon biner, serta dynamic programming.</p>
-            </div>
-            <div class="cert-footer">
-              <span class="cert-date"><i class="fa-regular fa-calendar"></i> 2024</span>
-              <span class="cert-view-btn" onclick="openCertModal('Algorithmic & Problem Solving Challenge', 'Informatics Coding Olympiad', 'assets/certificates/cert-coding.svg', 'Sertifikat apresiasi kompetisi pemrograman algoritma, optimasi kompleksitas Big-O, dan pemecahan kasus struktur data tingkat lanjut.')">Lihat Foto <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cert New: Lomba (Syafa Naiya Az Zahra - Lounity) -->
-        <div class="cert-card" data-category="lomba">
-          <div class="cert-preview-img" onclick="window.open('assets/Syafa_naiya_AZ_Zahra_Lounity.pdf', '_blank')">
-            <span class="cert-category-badge badge-lomba"><i class="fa-solid fa-trophy"></i> Lomba</span>
-            <div style="text-align: center; color: #F59E0B; padding: 20px;">
-              <i class="fa-solid fa-award" style="font-size: 3.5rem; margin-bottom: 8px; color: #F59E0B;"></i>
-              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">Klik untuk melihat foto sertifikat</div>
-            </div>
-          </div>
-          <div class="cert-body">
-            <div>
-              <span class="cert-issuer"><i class="fa-solid fa-trophy"></i> Lounity Competition</span>
-              <h4>Syafa Naiya Az Zahra - Lounity</h4>
-              <p>Sertifikat prestasi dalam kompetisi Lounity.</p>
-            </div>
-            <div class="cert-footer">
-              <span class="cert-date"><i class="fa-regular fa-calendar"></i> 2025</span>
-              <span class="cert-view-btn" onclick="window.open('assets/Syafa_naiya_AZ_Zahra_Lounity.pdf', '_blank')">Lihat Foto <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cert New: Organisasi (Syafa Naiya Az Zahra) -->
-        <div class="cert-card" data-category="organisasi">
-          <div class="cert-preview-img" onclick="openCertModal('Syafa Naiya Az Zahra', 'Organisasi & Kepanitiaan', 'assets/Syafa_Naiya_Az_Zahra.pdf', 'Sertifikat apresiasi keikutsertaan dalam organisasi dan kepanitiaan.')">
-            <span class="cert-category-badge badge-organisasi"><i class="fa-solid fa-users"></i> Organisasi</span>
-            <div style="text-align: center; color: #C084FC; padding: 20px;">
-              <i class="fa-solid fa-id-card-clip" style="font-size: 3.5rem; margin-bottom: 8px; color: #C084FC;"></i>
-              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">Klik untuk melihat foto sertifikat</div>
-            </div>
-          </div>
-          <div class="cert-body">
-            <div>
-              <span class="cert-issuer"><i class="fa-solid fa-users-gear"></i> Organisasi & Kepanitiaan</span>
-              <h4>Syafa Naiya Az Zahra</h4>
-              <p>Sertifikat apresiasi atas partisipasi aktif dalam kegiatan organisasi dan kepanitiaan.</p>
-            </div>
-            <div class="cert-footer">
-              <span class="cert-date"><i class="fa-regular fa-calendar"></i> 2025</span>
-              <span class="cert-view-btn" onclick="window.open('assets/Syafa_Naiya_Az_Zahra.pdf', '_blank')">Lihat Foto <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cert 5: Organisasi (Pengurus Divisi IT & Publikasi) -->
-        <div class="cert-card" data-category="organisasi">
-          <div class="cert-preview-img" onclick="openCertModal('Sertifikat Pengurus Divisi IT & Media Kreatif', 'Himpunan Mahasiswa Teknik Informatika (HMTI)', 'assets/certificates/cert-organisasi.svg', 'Apresiasi dedikasi kepengurusan organisasi mahasiswa dalam pengelolaan media digital, website divisi, dan publikasi event teknologi.')">
-            <span class="cert-category-badge badge-organisasi"><i class="fa-solid fa-users"></i> Organisasi</span>
-            <div style="text-align: center; color: #C084FC; padding: 20px;">
-              <i class="fa-solid fa-id-card-clip" style="font-size: 3.5rem; margin-bottom: 8px; color: #C084FC;"></i>
-              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">Klik untuk melihat foto sertifikat</div>
-            </div>
-          </div>
-          <div class="cert-body">
-            <div>
-              <span class="cert-issuer"><i class="fa-solid fa-users-gear"></i> Himpunan Mahasiswa Informatika</span>
-              <h4>Divisi IT, Sistem Informasi & Publikasi Kreatif</h4>
-              <p>Berperan aktif dalam pengembangan portal web organisasi, manajemen aset visual digital, dan koordinasi kepanitiaan acara berskala kampus.</p>
-            </div>
-            <div class="cert-footer">
-              <span class="cert-date"><i class="fa-regular fa-calendar"></i> 2025</span>
-              <span class="cert-view-btn" onclick="openCertModal('Sertifikat Pengurus Divisi IT & Media Kreatif', 'Himpunan Mahasiswa Teknik Informatika (HMTI)', 'assets/certificates/cert-organisasi.svg', 'Apresiasi dedikasi kepengurusan organisasi mahasiswa dalam pengelolaan media digital, website divisi, dan publikasi event teknologi.')">Lihat Foto <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cert 6: Organisasi (Kepanitiaan Seminar & Workshop Nasional) -->
-        <div class="cert-card" data-category="organisasi">
-          <div class="cert-preview-img" onclick="openCertModal('Kepanitiaan Seminar Nasional Teknologi & AI', 'Fakultas Teknologi Informasi UKSW', 'assets/certificates/cert-panitia.svg', 'Sertifikat apresiasi atas peran aktif kepanitiaan dalam penyelenggaraan seminar nasional kecerdasan buatan dan workshop software engineering.')">
-            <span class="cert-category-badge badge-organisasi"><i class="fa-solid fa-users"></i> Organisasi</span>
-            <div style="text-align: center; color: #C084FC; padding: 20px;">
-              <i class="fa-solid fa-handshake-angle" style="font-size: 3.5rem; margin-bottom: 8px; color: #C084FC;"></i>
-              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">Klik untuk melihat foto sertifikat</div>
-            </div>
-          </div>
-          <div class="cert-body">
-            <div>
-              <span class="cert-issuer"><i class="fa-solid fa-users-gear"></i> Panitia Seminar Nasional FTI</span>
-              <h4>Kepanitiaan Workshop & Tech Seminar Nasional</h4>
-              <p>Membantu kelancaran operasional teknis, streaming broadcast, registrasi digital peserta, dan dokumentasi sistem acara.</p>
-            </div>
-            <div class="cert-footer">
-              <span class="cert-date"><i class="fa-regular fa-calendar"></i> 2025</span>
-              <span class="cert-view-btn" onclick="openCertModal('Kepanitiaan Seminar Nasional Teknologi & AI', 'Fakultas Teknologi Informasi UKSW', 'assets/certificates/cert-panitia.svg', 'Sertifikat apresiasi atas peran aktif kepanitiaan dalam penyelenggaraan seminar nasional kecerdasan buatan dan workshop software engineering.')">Lihat Foto <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+              <span class="cert-date"><i class="fa-regular fa-calendar"></i> 2026</span>
+              <span class="cert-view-btn" onclick="openCertModal('CV Lounity - Syafa Naiya Az Zahra', 'Design Version CV', 'assets/certificates/Syafa_naiya_AZ_Zahra_Lounity_page1.png', 'CV dengan desain modern untuk aplikasi profesional dan portofolio.')">Lihat Full <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
             </div>
           </div>
         </div>
